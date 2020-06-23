@@ -1,0 +1,47 @@
+# https://www.hackerrank.com/contests/target-codevita-7/challenges/sock-merchant
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the sockMerchant function below.
+def sockMerchant(n, ar):
+
+    #function carries two parameters; number of socks, n and ar as color code of n socks
+    # take a temp variable 'ans' and initialize as 0
+    ans=0
+
+    # check the count of all disctinct color socks and add it in pair count
+    # make a list to set for checking distinct color items
+    for i in set(ar):
+        #count the 'i'th color of sock 
+        c = ar.count(i)
+        # if count is having some pairs then add it as pair count in 'ans'
+        ans = ans + c//2
+
+    #return the pair count as ans
+    return ans
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    #Input the number of socks to be checked in variable 'n'
+    n = int(input())
+
+    # ar array contains the color code of socks
+    ar = list(map(int, input().rstrip().split()))
+
+    # call the function with two arguments (n,ar)
+    result = sockMerchant(n, ar)
+
+    # return the pair of socks
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+# https://www.hackerrank.com/contests/target-codevita-7/challenges/sock-merchant
