@@ -1,0 +1,53 @@
+# https://www.hackerrank.com/contests/target-codevita-7/challenges/utopian-tree
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the utopianTree function below.
+def utopianTree(n):
+    #Function utopianTree with the argument 'n' as number of iterations
+    #Declare a variable 'h' as default height of a tree to 1
+    h=1
+    #if user input is 1 or more, run iterations otherwise return h=1
+
+    # for iterations till n=0, we are user while loop
+    while n>0:
+        # if n=1, means first season, then height would be doubled
+        if n==1:
+            h = h*2     # doubled up the height
+            return h    # as n=1, means no more seasons left, so return the value
+        # if n>1, means two seasons can pass and processed together
+        # for first season, h is doubled;   h = h*2
+        # for second season, height is increamented by 1; h = h+1
+        else:
+            h= h*2
+            h=h+1
+            n=n-2
+
+    #Return the height of a tree
+    return h
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input())
+
+    #Check for input values
+    for t_itr in range(t):
+        #Take input your user and store it in variable 'n'
+        n = int(input())
+
+        #Call the function utopianTree with the argument 'n' as number of iterations
+        #Function will return the value of height of a tree
+        result = utopianTree(n)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+# https://www.hackerrank.com/contests/target-codevita-7/challenges/utopian-tree
