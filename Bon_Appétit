@@ -1,0 +1,42 @@
+# https://www.hackerrank.com/contests/target-codevita-7/challenges/bon-appetit
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the bonAppetit function below.
+def bonAppetit(bill, k, b):
+    # Function with three arguments; bill array, kth item, b amount paid by Anna
+        #calculate the total bill in t_bill by adding all items
+        t_bill = sum(bill)
+        
+        #calculate the half bill as a_bill to be paid by Anna by removing kth item price
+        a_bill = (t_bill - bill[k])/2
+
+        #Check for the kth item, which is not eaten by Anna
+        # if Anna paid bill correctly, then print Bon Appetit
+        if b == int(a_bill):
+            print("Bon Appetit")
+        # if Anna paid bill incorrectly, then print balance to be returned
+        else:
+            print(b-int(a_bill))
+
+
+if __name__ == '__main__':
+    nk = input().rstrip().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    bill = list(map(int, input().rstrip().split()))
+
+    b = int(input().strip())
+    # Call a function with three arguments; bill array, kth item, b amount paid by Anna
+    bonAppetit(bill, k, b)
+
+# https://www.hackerrank.com/contests/target-codevita-7/challenges/bon-appetit
